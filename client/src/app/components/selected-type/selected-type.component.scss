@@ -1,0 +1,28 @@
+@import "../../colors.scss";
+
+:host {
+  div {
+    display: flex;
+    padding-right: 5vw;
+    width: 100%;
+    select {
+      width: 100%;
+      background-color: $component-main-bg-color;
+      color: white;
+      border: 1px solid #4b81a6;
+      height: 4vh;
+      padding-left: 1vw;
+      appearance: none;
+      position: relative;
+      left: 8px;
+    }
+    select option {
+      margin: 40px;
+      color: #fff;
+    }
+    img {
+      position: relative;
+      right: 1vw;
+    }
+  }
+}

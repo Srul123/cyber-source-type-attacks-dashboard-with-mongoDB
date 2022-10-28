@@ -1,0 +1,17 @@
+<div>
+  <select
+    *ngIf="loaded"
+    id="selected-type"
+    #mySelect
+    (change)="onOptionsSelected(mySelect.value)"
+    [value]="0"
+  >
+    <ng-container *ngIf="!isSelected">
+      <option value="0">Select a Threat Cyber Source</option>
+    </ng-container>
+    <option *ngFor="let option of options">
+      {{ option.name }}
+    </option>
+  </select>
+  <img src="assets/ArrowSelect.svg" />
+</div>

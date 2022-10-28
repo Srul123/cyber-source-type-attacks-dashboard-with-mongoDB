@@ -1,0 +1,21 @@
+@import "../../colors";
+:host {
+  .container {
+    background-color: $component-main-bg-color;
+    height: 100%;
+    .header {
+      height: 4vh;
+      background-color: $component-secondary-bg-color;
+      padding-left: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: 600;
+      font-size: 1em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}

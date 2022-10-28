@@ -1,0 +1,28 @@
+<div class="doughnut-container">
+  <div class="circle-cover">
+    <canvas
+      height="75"
+      baseChart
+      [datasets]="dataSets"
+      [labels]="dataLabel"
+      [chartType]="doughnutChartType"
+      [options]="options"
+    >
+    </canvas>
+  </div>
+
+  <div class="specs-values">
+    <div class="spec">
+      <h5>HIGH</h5>
+      <h3>{{ highSpec }}</h3>
+    </div>
+    <div class="spec">
+      <h5>MEDIUM</h5>
+      <h3>{{ mediumSpec }}</h3>
+    </div>
+    <div class="spec">
+      <h5>LOW</h5>
+      <h3>{{ lowSpec }}</h3>
+    </div>
+  </div>
+</div>

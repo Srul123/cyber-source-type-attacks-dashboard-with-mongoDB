@@ -1,0 +1,23 @@
+:host {
+  display: block;
+
+  .doughnut-container {
+    .circle-cover {
+      margin-top: 2vh;
+    }
+    .specs-values {
+      display: flex;
+      justify-content: space-evenly;
+      .spec {
+        display: flex;
+        flex-direction: column;
+        h3 {
+          margin-top: 0;
+        }
+        h5 {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

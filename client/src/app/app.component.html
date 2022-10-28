@@ -1,0 +1,42 @@
+<div id="app">
+  <div class="container">
+    <div class="select-type">
+      <app-selected-type
+        (isContentReady)="updateShowContentToTrue($event)"
+      ></app-selected-type>
+    </div>
+    <div *ngIf="showContent">
+      <risk-meter [percentage]="riskMeter"></risk-meter>
+      <div class="row">
+        <div class="box-1">
+          <app-card [title]="'CLEAR WEB TYPES'">
+            <app-types-info [dataTypes]="clearTypes"></app-types-info>
+          </app-card>
+        </div>
+        <div class="box-2">
+          <app-card [title]="'CLEAR WEB SEVERITIES'">
+            <doughnut-chart
+              [data]="clearPercentages"
+              [severities]="clearSeverities"
+            ></doughnut-chart>
+          </app-card>
+        </div>
+      </div>
+      <div class="row">
+        <div class="box-1">
+          <app-card [title]="'DARK WEB TYPES'">
+            <app-types-info [dataTypes]="darkTypes"></app-types-info>
+          </app-card>
+        </div>
+        <div class="box-2">
+          <app-card [title]="'DARK WEB SEVERITIES'">
+            <doughnut-chart
+              [data]="darkPercentages"
+              [severities]="darkSeverities"
+            ></doughnut-chart>
+          </app-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
