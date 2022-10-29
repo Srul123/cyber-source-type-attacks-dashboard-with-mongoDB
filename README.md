@@ -27,8 +27,6 @@ git clone https://github.com/Srul123/cyber-source-type-attacks-dashboard-with-mo
     2. Create collection with name 'attacksourcetypes' under 'cyber-sources' DB
     3. Load to to 'attacksourcetypes' collection the following file: 
        server\assets\data.json
-    3.1 Example:
-       ![image](https://user-images.githubusercontent.com/31043411/198828288-d5c8ef86-30db-4acb-8084-b1e8a9c29e2b.png)
 
     4. Go to following path inside server project 'server\src\routers\attack-info.js' and uncomment lines 58-67:
 		const readData = async () => {
@@ -55,4 +53,8 @@ git clone https://github.com/Srul123/cyber-source-type-attacks-dashboard-with-mo
 ## Done - MongoDB connected 
 
 		
-       
+       ![image](https://user-images.githubusercontent.com/31043411/198828452-170d268d-496d-43e8-a90a-2ae09a30b7c7.png)
+
+
+	![image](https://user-images.githubusercontent.com/31043411/198828471-3ae78552-2e2e-4bdf-96e4-7880c1873aaf.png)
+
