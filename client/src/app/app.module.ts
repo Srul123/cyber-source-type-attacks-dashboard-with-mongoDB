@@ -11,6 +11,7 @@ import { DoughnutChartComponent } from './components/doughnut-chart/doughnut-cha
 import { TypesInfoComponent } from './components/types-info/types-info.component';
 import { SelectedTypeComponent } from './components/selected-type/selected-type.component';
 import { ItemTypeComponent } from './components/item-type/item-type.component';
+import { SppinerComponent } from './components/sppiner/sppiner.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ItemTypeComponent } from './components/item-type/item-type.component';
     DoughnutChartComponent,
     TypesInfoComponent,
     SelectedTypeComponent,
-    ItemTypeComponent
+    ItemTypeComponent,
+    SppinerComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,8 @@ import {
   AttackSpecs,
   AttackByTypeResponse,
   AttackSeverities,
-} from "./components/interfaces/DTO.type";
+} from "./interfaces/DTO.type";
+import { ApiService } from "./services/api.service";
 
 import { AppDataService } from "./services/app-data.service";
 
@@ -20,9 +21,11 @@ export class AppComponent implements OnInit {
   darkPercentages: number[];
   darkTypes: AttackSpecs;
   riskMeter: number;
-  showContent = false;
-
-  constructor(private appDataService: AppDataService) {}
+  isAppLoading: boolean;
+  constructor(
+    private appDataService: AppDataService,
+    private apiService: ApiService
+  ) {}
 
   preparePercentagesForDataArray(severities: AttackSeverities): number[] {
     if (severities) {
@@ -35,8 +38,14 @@ export class AppComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this.appDataService.currentMessage.subscribe(
+ async ngOnInit() {
+    this.appDataService.currentLoading.subscribe((response) => {
+      this.isAppLoading = response;
+    });
+
+    await this.getOptionsSync();
+
+    this.appDataService.currentAttackByType.subscribe(
       (response: AttackByTypeResponse) => {
         this.clearSeverities = response.clearSeverities;
         this.clearTypes = response.clearTypes;
@@ -53,7 +62,13 @@ export class AppComponent implements OnInit {
     );
   }
 
-  updateShowContentToTrue() {
-    this.showContent = true;
+  async getOptionsSync() {
+    this.appDataService.updateLoading(true);
+    const optionsData = await this.apiService.getOptionsData();
+    this.appDataService.updateOptions(optionsData);
+    const data = await this.apiService.getAttackDataByCategory(optionsData[0].value);
+    this.appDataService.updateAttackByType(data);
+    this.appDataService.updateLoading(false);
+    this.appDataService.updateSelectedOption(optionsData[0].name)
   }
 }

@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from "@angular/core";
-import { AttackSpecs } from "../interfaces/DTO.type";
+import { AttackSpecs } from "../../interfaces/DTO.type";
 
 @Component({
   selector: "app-types-info",

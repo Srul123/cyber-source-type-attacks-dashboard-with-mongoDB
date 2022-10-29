@@ -6,7 +6,7 @@ import {
   SimpleChanges,
 } from "@angular/core";
 import { ChartOptions, ChartType } from "chart.js";
-import { AttackSeverities } from "../interfaces/DTO.type";
+import { AttackSeverities } from "../../interfaces/DTO.type";
 import { DoughnutLabel } from "./doughnut-chart.model";
 
 @Component({
@@ -41,17 +41,15 @@ export class DoughnutChartComponent implements OnChanges, OnInit {
   };
 
   ngOnChanges({ data }: SimpleChanges) {
-    if (this.severities) {
-        this.highSpec = this.severities.highSpec;
-        this.mediumSpec =  this.severities.mediumSpec;
-        this.lowSpec =  this.severities.lowSpec;
-    }
     if (data && data.currentValue) {
-        this.dataSets[0].data = data.currentValue;
+      this.dataSets[0].data = data.currentValue;
+    }
+    if (this.severities) {
+      this.highSpec = this.severities.highSpec;
+      this.mediumSpec = this.severities.mediumSpec;
+      this.lowSpec = this.severities.lowSpec;
     }
   }
 
-  ngOnInit(): void {
-   
-  }
+  ngOnInit(): void {}
 }

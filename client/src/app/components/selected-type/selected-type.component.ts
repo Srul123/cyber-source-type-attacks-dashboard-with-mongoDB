@@ -1,14 +1,9 @@
-import {
-  Component,
-  EventEmitter,
-  OnInit,
-  Output,
-} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { ApiService } from "src/app/services/api.service";
 
 import { AppDataService } from "src/app/services/app-data.service";
-import { AttackByTypeResponse, OptionsAttacks } from "../interfaces/DTO.type";
+import { OptionsAttacks } from "../../interfaces/DTO.type";
 
 @Component({
   selector: "app-selected-type",
@@ -17,36 +12,24 @@ import { AttackByTypeResponse, OptionsAttacks } from "../interfaces/DTO.type";
 })
 export class SelectedTypeComponent implements OnInit {
   options: OptionsAttacks[];
-  loaded = false;
+  selected: string;
   subscription: Subscription;
-  @Output() isContentReady = new EventEmitter<boolean>(false);
-  isSelected = false;
   constructor(
     private appDataService: AppDataService,
     private apiService: ApiService
   ) {}
 
-  ngOnInit(): void {
-    this.getOptions();
+  ngOnInit() {
+    this.appDataService.currentOptions.subscribe((response) => this.options = response);
+    this.appDataService.currentSelectedOption.subscribe((optionName) => this.selected = optionName);
   }
 
-  getOptions() {
-    this.apiService.getOptionsData().subscribe((response: OptionsAttacks[]) => {
-      this.options = response;
-      this.loaded = true;
-    });
-  }
-
-  onOptionsSelected(value: string) {
-    this.isContentReady.emit(true);
-    this.isSelected = true;
-    const option = this.options.find((item) => item.name === value);
-    this.apiService.getAttackDataByCategory(option.value).subscribe((value) => {
-      this.newMessage(value);
-    });
-  }
-
-  newMessage(message: AttackByTypeResponse) {
-    this.appDataService.changeMessage(message);
+  async onOptionsSelected(value: string) {
+    this.appDataService.updateLoading(true);
+    const optionName = this.options.find((item) => item.value === value);
+    const data = await this.apiService.getAttackDataByCategory(value);
+    this.appDataService.updateAttackByType(data);
+    this.appDataService.updateSelectedOption(optionName.name);
+    this.appDataService.updateLoading(false);
   }
 }

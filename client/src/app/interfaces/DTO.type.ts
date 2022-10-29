@@ -1,6 +1,7 @@
+/* DTOs - Data Transfer Object */
 export interface OptionsAttacks {
-  name: string;
-  value: string;
+  name?: string;
+  value?: string;
 }
 export interface AttackByTypeResponse {
     clearSeverities?: AttackSeverities;

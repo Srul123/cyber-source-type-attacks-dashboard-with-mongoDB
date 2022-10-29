@@ -2,18 +2,24 @@
   .container {
     padding: 10vh 20vw;
     .select-type {
-      float: right;
+      display: flex;
+      justify-content: end;
+      position: relative;
+      top: 2vh;
     }
     .row {
-      width: 100%;
       display: flex;
+      width: 100%;
       position: relative;
       top: 2vh;
       margin-bottom: 1vw;
-      .box-1 {
-        position: relative;
-        margin-right: 1vw;
-        min-width: 30vw;
+      .box-1,
+      .box-2 {
+        width: 100%;
+        min-width: 200px;
+      }
+      .spacer-flex {
+        min-width: 1vw;
       }
     }
   }
@@ -21,22 +27,12 @@
   @media (min-width: 1100px) {
     .row {
       flex-direction: row;
-      .box-1,
-      .box-2 {
-        flex: 1;
-        width: 50%;
-      }
     }
   }
 
   @media (min-width: 400px) and (max-width: 1100px) {
     .row {
       flex-direction: column;
-      .box-1,
-      .box-2 {
-        flex: 1;
-        width: 100%;
-      }
     }
   }
 }

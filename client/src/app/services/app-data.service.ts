@@ -1,19 +1,41 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { AttackByTypeResponse } from '../components/interfaces/DTO.type';
+import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
+import {
+  AttackByTypeResponse,
+  OptionsAttacks,
+} from "../interfaces/DTO.type";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AppDataService {
+  private attackByType = new BehaviorSubject<AttackByTypeResponse>({});
+  currentAttackByType = this.attackByType.asObservable();
 
-  private messageSource = new BehaviorSubject<AttackByTypeResponse>({});
-  currentMessage = this.messageSource.asObservable();
+  private optionsObservable = new BehaviorSubject<OptionsAttacks[]>([]);
+  currentOptions = this.optionsObservable.asObservable();
 
-  constructor() { }
+  private appLoading = new BehaviorSubject<boolean>(true);
+  currentLoading = this.appLoading.asObservable();
 
-  changeMessage(message: AttackByTypeResponse) {
-    this.messageSource.next(message);
+  private selectedOption = new BehaviorSubject<string>("");
+  currentSelectedOption = this.selectedOption.asObservable();
+
+  constructor() {}
+
+  updateOptions(value: OptionsAttacks[]) {
+    this.optionsObservable.next(value);
   }
 
+  updateAttackByType(value: AttackByTypeResponse) {
+    this.attackByType.next(value);
+  }
+
+  updateLoading(value: boolean) {
+    this.appLoading.next(value);
+  }
+
+  updateSelectedOption(value: string) {
+    this.selectedOption.next(value);
+  }
 }

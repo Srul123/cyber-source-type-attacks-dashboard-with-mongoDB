@@ -1,18 +1,24 @@
 <div id="app">
   <div class="container">
-    <div class="select-type">
-      <app-selected-type
-        (isContentReady)="updateShowContentToTrue($event)"
-      ></app-selected-type>
+    <div *ngIf="isAppLoading">
+      <app-sppiner></app-sppiner>
     </div>
-    <div *ngIf="showContent">
-      <risk-meter [percentage]="riskMeter"></risk-meter>
+    <div *ngIf="!isAppLoading">
+      <div class="select-type">
+        <app-selected-type></app-selected-type>
+      </div>
+      <div>
+        <div>
+          <risk-meter [percentage]="riskMeter"></risk-meter>
+        </div>
+      </div>
       <div class="row">
         <div class="box-1">
           <app-card [title]="'CLEAR WEB TYPES'">
             <app-types-info [dataTypes]="clearTypes"></app-types-info>
           </app-card>
         </div>
+        <div class="spacer-flex"></div>
         <div class="box-2">
           <app-card [title]="'CLEAR WEB SEVERITIES'">
             <doughnut-chart
@@ -28,6 +34,7 @@
             <app-types-info [dataTypes]="darkTypes"></app-types-info>
           </app-card>
         </div>
+        <div class="spacer-flex"></div>
         <div class="box-2">
           <app-card [title]="'DARK WEB SEVERITIES'">
             <doughnut-chart

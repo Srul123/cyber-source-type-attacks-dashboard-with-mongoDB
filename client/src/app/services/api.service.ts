@@ -1,25 +1,29 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { AttackByTypeResponse, OptionsAttacks } from '../components/interfaces/DTO.type';
-
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import {
+  AttackByTypeResponse,
+  OptionsAttacks,
+} from "../interfaces/DTO.type";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
-
-
 export class ApiService {
-  private apiBaseUrl = 'http://localhost:5000';
+  private apiBaseUrl = "http://localhost:5000";
   private apiURIAttackInfo = "attack-info";
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getOptionsData(): Observable<OptionsAttacks[]>{
-    return this.http.get<OptionsAttacks[]>(`${this.apiBaseUrl}/${this.apiURIAttackInfo}`);
+  getOptionsData() {
+    return this.http
+      .get<OptionsAttacks[]>(`${this.apiBaseUrl}/${this.apiURIAttackInfo}`)
+      .toPromise();
   }
 
-  getAttackDataByCategory(requestOption: string): Observable<AttackByTypeResponse>{
-    return this.http.get<AttackByTypeResponse>(`${this.apiBaseUrl}/${this.apiURIAttackInfo}/${requestOption}`);
+  getAttackDataByCategory(requestOption: string) {
+    return this.http
+      .get<AttackByTypeResponse>(
+        `${this.apiBaseUrl}/${this.apiURIAttackInfo}/${requestOption}`
+      )
+      .toPromise();
   }
 }
-

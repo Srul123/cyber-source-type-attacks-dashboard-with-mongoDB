@@ -104,8 +104,70 @@ const calculateRisksMeterAverage = (
   return parseInt((clearSeverityGradeStrength + clearTypeGradeStrength + darkSeverityGradeStrength + darkTypeGradeStrength) / 4);
 };
 
+
+function responseCyberAttackOptions(data=[]) {
+  const set = new Set();
+  for (let item of data) {
+    set.add(item.sourceType);
+  }
+  const response = Array.from(set)
+    .map((value) => {
+      const parsedName = value.replace(/([A-Z])/g, " $1");
+      const name = parsedName.charAt(0).toUpperCase() + parsedName.slice(1);
+      return { name: name.trim(), value };
+    })
+    .sort((a, b) => a.value.localeCompare(b.value));
+
+    return response;
+}
+
+
+function responseByTypeSourceAttack(data=[], type="") {
+  const filterByClearWeb = "ClearWeb";
+  const filterByDarkWeb = "DarkWeb";
+  const typeCatagories = data.filter((itemType) => {
+    return itemType.sourceType === type;
+  });
+  let category;
+  if (typeCatagories.length > 300) {
+    category = typeCatagories
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .slice(0, 300);
+  } else {
+    category = typeCatagories.sort(
+      (a, b) => new Date(b.date) - new Date(a.date)
+    );
+  }
+  const networkTypeClearWebList = category.filter(
+    (item) => item.networkType === filterByClearWeb
+  );
+  const clearSeverities = calculateSeverityStrength(networkTypeClearWebList);
+  const clearTypes = calculateTypeStrength(networkTypeClearWebList);
+
+  const networkTypeDarkWebList = category.filter(
+    (item) => item.networkType === filterByDarkWeb
+  );
+  const darkSeverities = calculateSeverityStrength(networkTypeDarkWebList);
+  const darkTypes = calculateTypeStrength(networkTypeDarkWebList);
+
+  const riskMeter = calculateRisksMeterAverage(
+    clearSeverities.severityStrength,
+    clearTypes.typeStrength,
+    darkSeverities.severityStrength,
+    darkTypes.typeStrength
+  );
+
+  const response = {
+    clearSeverities,
+    clearTypes,
+    darkSeverities,
+    darkTypes,
+    riskMeter,
+  };
+  return response;
+}
+
 module.exports = {
-  calculateSeverityStrength,
-  calculateTypeStrength,
-  calculateRisksMeterAverage,
+  responseCyberAttackOptions,
+  responseByTypeSourceAttack
 };
