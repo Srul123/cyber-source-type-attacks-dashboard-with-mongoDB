@@ -25,7 +25,7 @@ git clone https://github.com/Srul123/cyber-source-type-attacks-dashboard-with-mo
     
     
 ## MongoDB server wiring connection instruction (Optional):
-    1. create DB with name 'cyber-sources' which running on mongodb://127.0.0.1:27017/cyber-sources
+    1. create DB with name 'cyber-sources' which running on port mongodb://127.0.0.1:27017/cyber-sources
     2. Create collection with name 'attacksourcetypes' under 'cyber-sources' DB
     3. Load to 'attacksourcetypes' collection the following file: 
        server\assets\data.json
