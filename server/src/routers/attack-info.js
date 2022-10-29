@@ -18,7 +18,7 @@ router.get(`${apiURL}`, async (req, res) => {
   try {
     const data = await readData();
     const response = responseCyberAttackOptions(data);
-    res.status(200).send(JSON.stringify(response));
+    res.status(200).send(response);
   } catch (e) {
     res.status(404).send({
       errorMessage: `Cannot access ${apiURL}`,
@@ -58,8 +58,8 @@ const cacheDataKey = "attackTypesResource";
 const readData = async () => {
   const cacheDataKey = "attackTypesResource";
   if (myCache.has(cacheDataKey)) {
-    const timeCache = myCache.get(cacheDataKey);
-    return timeCache;
+    const dataFromDB = myCache.get(cacheDataKey);
+    return dataFromDB;
   }
   const attackTypesResource = await AttackSourceTypes.find();
   myCache.set(cacheDataKey, attackTypesResource);
