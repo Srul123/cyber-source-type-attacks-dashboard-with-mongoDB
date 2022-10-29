@@ -23,7 +23,10 @@ git clone https://github.com/Srul123/cyber-source-type-attacks-dashboard-with-mo
     ng serve
     open http://localhost:4200/ in browser
     
-## Done    
+## You are done (-:
+    
+## Dashboard panel project screenshot example:		
+![image](https://user-images.githubusercontent.com/31043411/198828452-170d268d-496d-43e8-a90a-2ae09a30b7c7.png)    
     
 ## Optional - MongoDB server wiring connection instruction:
     1. Create DB with name 'cyber-sources' which running on port mongodb://127.0.0.1:27017/cyber-sources
@@ -54,8 +57,7 @@ git clone https://github.com/Srul123/cyber-source-type-attacks-dashboard-with-mo
 	// }
 	
 
-## Dashboard panel project screenshot:		
-![image](https://user-images.githubusercontent.com/31043411/198828452-170d268d-496d-43e8-a90a-2ae09a30b7c7.png)
+
 
 ## MongoDB setup example:
 ![image](https://user-images.githubusercontent.com/31043411/198828471-3ae78552-2e2e-4bdf-96e4-7880c1873aaf.png)
