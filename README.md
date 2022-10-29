@@ -38,8 +38,8 @@ git clone https://github.com/Srul123/cyber-source-type-attacks-dashboard-with-mo
 		const readData = async () => {
 		  const cacheDataKey = "attackTypesResource";
 		  if (myCache.has(cacheDataKey)) {
-		    const timeCache = myCache.get(cacheDataKey);
-		    return timeCache;
+		    const dataFromDB = myCache.get(cacheDataKey);
+    		    return dataFromDB;
 		  }
 		  const attackTypesResource = await AttackSourceTypes.find();
 		  myCache.set(cacheDataKey, attackTypesResource);
