@@ -54,9 +54,9 @@ git clone https://github.com/Srul123/cyber-source-type-attacks-dashboard-with-mo
 	
 ## Done - MongoDB connected 
 
-		
+## Dashboard panel project screenshot:		
 ![image](https://user-images.githubusercontent.com/31043411/198828452-170d268d-496d-43e8-a90a-2ae09a30b7c7.png)
 
-
+## MongoDB setup example:
 ![image](https://user-images.githubusercontent.com/31043411/198828471-3ae78552-2e2e-4bdf-96e4-7880c1873aaf.png)
 
