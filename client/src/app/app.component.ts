@@ -28,14 +28,12 @@ export class AppComponent implements OnInit {
   ) {}
 
   preparePercentagesForDataArray(severities: AttackSeverities): number[] {
-    if (severities) {
       const sum =
         severities.highSpec + severities.mediumSpec + severities.lowSpec;
       const high = Math.round((severities.highSpec / sum) * 100);
       const medium = Math.round((severities.mediumSpec / sum) * 100);
       const low = Math.round((severities.lowSpec / sum) * 100);
       return [high, medium, low];
-    }
   }
 
  async ngOnInit() {
