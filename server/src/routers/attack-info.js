@@ -2,9 +2,12 @@ const express = require("express");
 const { readFileSync } = require("fs");
 
 const {
-  responseByTypeSourceAttack,
+  responseByTypeSourceAttack
+} = require("../business-logic/responseByTypeSourceAttack");
+
+const {
   responseCyberAttackOptions
-} = require("../business-logic/calculations");
+} = require("../business-logic/responseCyberAttackOptions");
 
 const AttackSourceTypes = require("../models/attackSourceTypes");
 
