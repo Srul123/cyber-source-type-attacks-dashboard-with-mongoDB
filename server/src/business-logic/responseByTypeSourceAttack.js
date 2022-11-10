@@ -1,3 +1,8 @@
+const {
+  calculateAverageByFactor,
+  getObjectKeysAsString,
+} = require("../utils/utils");
+
 function responseByTypeSourceAttack(data = Array, type = String) {
   const filterByClearWeb = "ClearWeb";
   const filterByDarkWeb = "DarkWeb";
@@ -16,7 +21,7 @@ function responseByTypeSourceAttack(data = Array, type = String) {
   const darkSeverities = calculateSeverityStrength(networkTypeDarkWebList);
   const darkTypes = calculateTypeStrength(networkTypeDarkWebList);
 
-  const riskMeter = calculateAverageFactor(
+  const riskMeter = calculateAverageByFactor(
     [
       clearSeverities.severityStrength,
       clearTypes.typeStrength,
@@ -25,7 +30,6 @@ function responseByTypeSourceAttack(data = Array, type = String) {
     ],
     4
   );
-
 
   const response = {
     clearSeverities,
@@ -69,33 +73,36 @@ function prepareData(data = Array, type = String) {
   return category;
 }
 
-const calculateSeverityStrength = (data = Array) => {
+function calculateSeverityStrength(data = Array) {
   const filterBySeverity = "severity";
+  const { high, medium, low } = getObjectKeysAsString(
+    SEVERITY_STRENGTH_INDICATORS
+  );
   const highSpec = calculateSpecByType(
     data,
     filterBySeverity,
-    "high",
+    high,
     SEVERITY_STRENGTH_INDICATORS
   );
   const mediumSpec = calculateSpecByType(
     data,
     filterBySeverity,
-    "medium",
+    medium,
     SEVERITY_STRENGTH_INDICATORS
   );
   const lowSpec = calculateSpecByType(
     data,
     filterBySeverity,
-    "low",
+    low,
     SEVERITY_STRENGTH_INDICATORS
   );
-  const severityStrength = calculateAverageFactor(
+  const severityStrength = calculateAverageByFactor(
     [highSpec, mediumSpec, lowSpec],
     data.length
   );
 
   return { highSpec, mediumSpec, lowSpec, severityStrength };
-};
+}
 
 function calculateSpecByType(
   data = Array,
@@ -113,45 +120,52 @@ function calculateSpecByType(
 
 const calculateTypeStrength = (data = Array) => {
   const filterByType = "type";
-
+  const {
+    vip,
+    attackIndication,
+    exploitableData,
+    brandSecurity,
+    dataLeakage,
+    phishing,
+  } = getObjectKeysAsString(TYPE_STRENGTH_INDICATORS);
   const vipSpec = calculateSpecByType(
     data,
     filterByType,
-    "vip",
+    vip,
     TYPE_STRENGTH_INDICATORS
   );
   const attackIndicationSpec = calculateSpecByType(
     data,
     filterByType,
-    "attackIndication",
+    attackIndication,
     TYPE_STRENGTH_INDICATORS
   );
   const exploitableDataSpec = calculateSpecByType(
     data,
     filterByType,
-    "exploitableData",
+    exploitableData,
     TYPE_STRENGTH_INDICATORS
   );
   const brandSecuritySpec = calculateSpecByType(
     data,
     filterByType,
-    "brandSecurity",
+    brandSecurity,
     TYPE_STRENGTH_INDICATORS
   );
   const dataLeakageSpec = calculateSpecByType(
     data,
     filterByType,
-    "dataLeakage",
+    dataLeakage,
     TYPE_STRENGTH_INDICATORS
   );
   const phishingSpec = calculateSpecByType(
     data,
     filterByType,
-    "phishing",
+    phishing,
     TYPE_STRENGTH_INDICATORS
   );
 
-  const typeStrength = calculateAverageFactor(
+  const typeStrength = calculateAverageByFactor(
     [
       vipSpec,
       attackIndicationSpec,
@@ -173,21 +187,6 @@ const calculateTypeStrength = (data = Array) => {
     typeStrength,
   };
 };
-
-function calculateAverageFactor(arr = Array, factor = Number) {
-  const sum = arr.reduce((cur, acc) => cur + acc);
-  return parseInt(sum / factor);
-}
-
-const calculateRisksMeterAverage = (
-  clearSeverityGradeStrength = Number,
-  clearTypeGradeStrength = Number,
-  darkSeverityGradeStrength = Number,
-  darkTypeGradeStrength = Number) => {
-  return parseInt((clearSeverityGradeStrength + clearTypeGradeStrength + darkSeverityGradeStrength + darkTypeGradeStrength) / 4);
-};
-
-
 
 module.exports = {
   responseByTypeSourceAttack,
