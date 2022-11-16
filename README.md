@@ -15,7 +15,7 @@ MEAN Stack Technologies - MongoDB + ExpressJS + Angular + NodeJS
     npm start
 
 ## Installation client side:
-    npm install -g @angular/cli
+    npm install @angular/cli
     cd client
     npm install
 
