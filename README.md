@@ -39,6 +39,8 @@ git clone https://github.com/Srul123/cyber-source-type-attacks-dashboard-with-mo
        docker compose up
 
 # Optional - MongoDB server:
+![image](https://user-images.githubusercontent.com/31043411/202291201-538a4c55-a6c1-4544-a36d-bb679de1ddfc.png)
+
     1. Create local DB with name 'cyber-sources' which running on port mongodb://127.0.0.1:27017/cyber-sources
     2. Create collection with name 'attacksourcetypes' under 'cyber-sources' DB
     3. Load to 'attacksourcetypes' collection the following file: 
