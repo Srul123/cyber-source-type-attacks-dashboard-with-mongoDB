@@ -48,6 +48,7 @@ open http://localhost:4200 in your browser
    server\assets\data.json
    - see example in screenshot below
 4. Go to following path inside server project 'server\src\routers\attack-info.js' and uncomment lines 58-67:
+##
 		const readData = async () => {
 		  const cacheDataKey = "attackTypesResource";
 		  if (myCache.has(cacheDataKey)) {
@@ -59,6 +60,7 @@ open http://localhost:4200 in your browser
 		  return attackTypesResource;
 		}
  5. Go to lines 43-51 and comment these lines:
+##
         // async function readData() {
 		// const cacheDataKey = "attackTypesResource";
 		//   if (myCache.has(cacheDataKey)) {
