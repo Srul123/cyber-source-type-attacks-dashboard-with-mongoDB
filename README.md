@@ -23,7 +23,7 @@ git clone https://github.com/Srul123/cyber-source-type-attacks-dashboard-with-mo
 
 ## Run client dev server
     ng serve
-    // open http://localhost:4200/ in browser
+open http://localhost:4200 in your browser
     
 ## You are done (-:
     
