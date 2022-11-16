@@ -4,11 +4,6 @@ MEAN Stack Technologies - MongoDB + ExpressJS + Angular + NodeJS
 ![image](https://user-images.githubusercontent.com/31043411/198828746-5b0e0a0b-da70-4780-9817-857799de47b2.png)
 
 
-
-
-## Clone repo:
-   git clone https://github.com/Srul123/cyber-source-type-attacks-dashboard-with-mongoDB.git
-
 ## Clone repo:
     git clone https://github.com/Srul123/cyber-source-type-attacks-dashboard-with-mongoDB.git
 
