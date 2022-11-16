@@ -28,7 +28,7 @@ open http://localhost:4200 in your browser
 ## Dashboard panel project screenshot example:		
 ![image](https://user-images.githubusercontent.com/31043411/198828452-170d268d-496d-43e8-a90a-2ae09a30b7c7.png)    
 
-# Optional Docker with image container of NodeJS 16 Server
+# Optional - Docker with image container of NodeJS 16 Server
 ![image](https://user-images.githubusercontent.com/31043411/202275317-17ac04df-91fd-4d5a-8b36-27b114824892.png)
 
 
