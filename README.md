@@ -3,6 +3,9 @@ MEAN Stack Technologies - MongoDB + ExpressJS + Angular + NodeJS
 
 ![image](https://user-images.githubusercontent.com/31043411/198828746-5b0e0a0b-da70-4780-9817-857799de47b2.png)
 
+# Optional Docker with image container of NodeJS 16 + Express server
+![image](https://user-images.githubusercontent.com/31043411/202275317-17ac04df-91fd-4d5a-8b36-27b114824892.png)
+
 
 ## Clone repo:
 git clone https://github.com/Srul123/cyber-source-type-attacks-dashboard-with-mongoDB.git
@@ -27,8 +30,13 @@ git clone https://github.com/Srul123/cyber-source-type-attacks-dashboard-with-mo
     
 ## Dashboard panel project screenshot example:		
 ![image](https://user-images.githubusercontent.com/31043411/198828452-170d268d-496d-43e8-a90a-2ae09a30b7c7.png)    
-    
-## Optional - MongoDB server wiring connection instruction:
+
+# Optional - Load the NodeJS server with Docker
+    1. Make sure you already installed Docker on your local machine
+    2. Run from server folder: 
+       docker compose up
+
+# Optional - MongoDB server:
     1. Create local DB with name 'cyber-sources' which running on port mongodb://127.0.0.1:27017/cyber-sources
     2. Create collection with name 'attacksourcetypes' under 'cyber-sources' DB
     3. Load to 'attacksourcetypes' collection the following file: 
