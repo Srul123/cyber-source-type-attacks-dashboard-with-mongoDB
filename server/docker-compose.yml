@@ -1,0 +1,9 @@
+version: '2'
+services:
+  app:
+    container_name: nodejs-server
+    restart: always
+    build: .
+    ports:
+      - '5000:5000'
+
