@@ -23,7 +23,7 @@ MEAN Stack Technologies - MongoDB + ExpressJS + Angular + NodeJS
     ng serve
 open http://localhost:4200 in your browser
     
-## You are done (-:
+You are done (-:
     
 ## Dashboard panel project screenshot example:		
 ![image](https://user-images.githubusercontent.com/31043411/198828452-170d268d-496d-43e8-a90a-2ae09a30b7c7.png)    
