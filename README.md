@@ -34,8 +34,8 @@ git clone https://github.com/Srul123/cyber-source-type-attacks-dashboard-with-mo
 ![image](https://user-images.githubusercontent.com/31043411/202275317-17ac04df-91fd-4d5a-8b36-27b114824892.png)
 
 
-    1. Make sure you already installed Docker on your local machine
-    2. Run from server folder project (cyber-source-type-attacks-dashboard-with-mongoDB/server): 
+1. Make sure you already installed Docker on your local machine
+2. Run from server folder project (cyber-source-type-attacks-dashboard-with-mongoDB/server): 
        docker compose up
 
 # Optional - MongoDB server:
