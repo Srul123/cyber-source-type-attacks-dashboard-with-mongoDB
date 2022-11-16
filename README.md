@@ -31,7 +31,9 @@ git clone https://github.com/Srul123/cyber-source-type-attacks-dashboard-with-mo
 ![image](https://user-images.githubusercontent.com/31043411/198828452-170d268d-496d-43e8-a90a-2ae09a30b7c7.png)    
 
 # Optional Docker with image container of NodeJS 16 Server
-![image](https://user-images.githubusercontent.com/31043411/202275317-17ac04df-91fd-4d5a-8b36-27b114824892.png) 
+![image](https://user-images.githubusercontent.com/31043411/202275317-17ac04df-91fd-4d5a-8b36-27b114824892.png)
+
+
     1. Make sure you already installed Docker on your local machine
     2. Run from server folder project (cyber-source-type-attacks-dashboard-with-mongoDB/server): 
        docker compose up
