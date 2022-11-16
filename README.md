@@ -42,12 +42,12 @@ open http://localhost:4200 in your browser
 # Optional - MongoDB server:
 ![image](https://user-images.githubusercontent.com/31043411/202291201-538a4c55-a6c1-4544-a36d-bb679de1ddfc.png)
 
-    1. Create local DB with name 'cyber-sources' which running on port mongodb://127.0.0.1:27017/cyber-sources
-    2. Create collection with name 'attacksourcetypes' under 'cyber-sources' DB
-    3. Load to 'attacksourcetypes' collection the following file: 
-       server\assets\data.json
-	- see example in screenshot below
-    4. Go to following path inside server project 'server\src\routers\attack-info.js' and uncomment lines 58-67:
+1. Create local DB with name 'cyber-sources' which running on port mongodb://127.0.0.1:27017/cyber-sources
+2. Create collection with name 'attacksourcetypes' under 'cyber-sources' DB
+3. Load to 'attacksourcetypes' collection the following file: 
+   server\assets\data.json
+   - see example in screenshot below
+4. Go to following path inside server project 'server\src\routers\attack-info.js' and uncomment lines 58-67:
 		const readData = async () => {
 		  const cacheDataKey = "attackTypesResource";
 		  if (myCache.has(cacheDataKey)) {
@@ -58,7 +58,7 @@ open http://localhost:4200 in your browser
 		  myCache.set(cacheDataKey, attackTypesResource);
 		  return attackTypesResource;
 		}
-     5. Go to lines 43-51 and comment these lines:
+ 5. Go to lines 43-51 and comment these lines:
         // async function readData() {
 		// const cacheDataKey = "attackTypesResource";
 		//   if (myCache.has(cacheDataKey)) {
