@@ -3,7 +3,7 @@ MEAN Stack Technologies - MongoDB + ExpressJS + Angular + NodeJS
 
 ![image](https://user-images.githubusercontent.com/31043411/198828746-5b0e0a0b-da70-4780-9817-857799de47b2.png)
 
-# Optional Docker with image container of NodeJS 16 + Express server
+# Optional Docker with image container of NodeJS 16 Server
 ![image](https://user-images.githubusercontent.com/31043411/202275317-17ac04df-91fd-4d5a-8b36-27b114824892.png)
 
 
